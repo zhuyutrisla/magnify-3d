@@ -87,13 +87,13 @@ export default class Magnify3d {
         const pixelRatio = renderer.getPixelRatio();
         pos = { x: pos.x * pixelRatio, y: pos.y * pixelRatio };
 
-        let { width, height } = renderer.getSize();
+        let { width, height } = renderer.getSize(new THREE.Vector2());
 
         width *= pixelRatio;
         height *= pixelRatio;
 
-        const maxViewportWidth = renderer.context.getParameter(renderer.context.MAX_VIEWPORT_DIMS)[0];
-        const maxViewportHeight = renderer.context.getParameter(renderer.context.MAX_VIEWPORT_DIMS)[1];
+        const maxViewportWidth = renderer.getContext().getParameter(renderer.getContext().MAX_VIEWPORT_DIMS)[0];
+        const maxViewportHeight = renderer.getContext().getParameter(renderer.getContext().MAX_VIEWPORT_DIMS)[1];
 
         let resWidth = width;
         let resHeight = height;
@@ -136,11 +136,13 @@ export default class Magnify3d {
             this.fxaaMaterial.uniforms['resolution'].value = { x: 1 / width, y: 1 / height };
 
             this.fxaaTarget.setSize(width, height);
-
-            renderer.render(this.magnifyScene, this.camera, this.fxaaTarget); // Render magnify pass to fxaaTarget.
-            renderer.render(this.fxaaScene, this.camera, outputBuffer); // Render final pass to output buffer.
+            renderer.setRenderTarget(this.fxaaTarget);
+            renderer.render(this.magnifyScene, this.camera); // Render magnify pass to fxaaTarget.
+            renderer.setRenderTarget(null);
+            renderer.render(this.fxaaScene, this.camera); // Render final pass to output buffer.
         } else {
-            renderer.render(this.magnifyScene, this.camera, outputBuffer); // Render magnify pass to outputBuffer.
+            renderer.setRenderTarget(null);
+            renderer.render(this.magnifyScene, this.camera); // Render magnify pass to outputBuffer.
         }
 
         renderer.autoClear = autoClearBackup;

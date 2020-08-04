@@ -5,16 +5,20 @@
 Real time optic magnifying glass for [three.js](https://github.com/mrdoob/three.js).
 Get a high-res zoomed section of your 3d scene, with a single API.
 
+FORK FROM https://github.com/amitdiamant/magnify-3d
+
+SUPPORT NEW THREE.js VERSION
+
 ## Demo
 - [Live Demo](https://amitdiamant.github.io/magnify-3d)
 - [Sample Code](sample/index.js#L165)
 
 ## Install
-```$ npm install magnify-3d --save ```
+```$ npm install magnify-3d-new --save ```
 
 ## Usage
 ```js
-import Magnify3d from 'magnify-3d';
+import Magnify3d from 'magnify-3d-new';
 
 const magnify3d = new Magnify3d();
 
@@ -25,9 +29,13 @@ magnify3d.render({
     pos: { mouse.x, mouse.y },
     
     renderSceneCB: (target) => {
-    
-        renderer.render(scene, camera, target);
-      
+        if (target) {
+            renderer.setRenderTarget(target);
+        } else {
+            renderer.setRenderTarget(null);
+        }
+        renderer.render(scene, camera);
+          
     }
     
 });

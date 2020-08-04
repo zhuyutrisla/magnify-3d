@@ -174,7 +174,12 @@ function init() {
 }
 
 function renderSceneToTarget(tgt) {
-    renderer.render(scene, camera, tgt);
+    if (tgt) {
+        renderer.setRenderTarget(tgt);
+    } else {
+        renderer.setRenderTarget(null);
+    }
+    renderer.render(scene, camera);
 }
 
 function render() {
