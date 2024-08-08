@@ -1,5 +1,5 @@
 {
-  "name": "magnify-3d",
+  "name": "magnify-3d-new",
   "version": "1.1.0",
   "description": "Real time optic magnifying glass library.",
   "main": "build/Magnify3d.js",
@@ -9,10 +9,10 @@
     "build-sample": "SET NODE_OPTIONS=--openssl-legacy-provider && NODE_ENV=production webpack --progress --config ./webpack.config.sample --mode=production",
     "deploy-sample": "npm run build-sample && gh-pages -d build/sample"
   },
-  "author": "Amit Diamant",
+  "author": "zhuyutrisla",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amitdiamant/magnify-3d"
+    "url": "https://github.com/zhuyutrisla/magnify-3d"
   },
   "license": "MIT",
   "devDependencies": {

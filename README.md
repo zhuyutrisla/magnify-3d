@@ -13,7 +13,7 @@ Version history
 * v1.1.0
 	- Support three.js v0.167.1
 
-* v1.0.4
+* v1.0.3
 	- Support three.js v0.119.1
 
 
