@@ -1,12 +1,12 @@
 {
   "name": "magnify-3d",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Real time optic magnifying glass library.",
   "main": "build/Magnify3d.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.sample --devtool source-map --progress --hot --mode=development --host 0.0.0.0",
+    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && webpack-dev-server --config ./webpack.config.sample --devtool source-map --progress --hot --mode=development --host 0.0.0.0 --port 7070",
     "build": "rm -rf ./build && cross-env NODE_ENV=rollup rollup -c",
-    "build-sample": "NODE_ENV=production webpack --progress --config ./webpack.config.sample --mode=production",
+    "build-sample": "SET NODE_OPTIONS=--openssl-legacy-provider && NODE_ENV=production webpack --progress --config ./webpack.config.sample --mode=production",
     "deploy-sample": "npm run build-sample && gh-pages -d build/sample"
   },
   "author": "Amit Diamant",
@@ -33,14 +33,14 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^3.0.0",
-    "three": "^0.119.1",
+    "three": "^0.167.1",
     "webpack": "4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14",
     "webpack-glsl-loader": "1.0.1"
   },
   "peerDependencies": {
-    "three": "^0.119.1"
+    "three": "^0.167.1"
   },
   "files": [
     "package.json",

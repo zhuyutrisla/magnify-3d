@@ -1,5 +1,5 @@
 
-[![version](https://img.shields.io/badge/version-1.0.4-green.svg)](https://semver.org)
+[![version](https://img.shields.io/badge/version-1.1.0-green.svg)](https://semver.org)
 
 ## Magnify 3d
 Real time optic magnifying glass for [three.js](https://github.com/mrdoob/three.js).
@@ -7,7 +7,15 @@ Get a high-res zoomed section of your 3d scene, with a single API.
 
 FORK FROM https://github.com/amitdiamant/magnify-3d
 
-SUPPORT NEW THREE.js VERSION
+
+Version history
+---------------
+* v1.1.0
+	- Support three.js v0.167.1
+
+* v1.0.4
+	- Support three.js v0.119.1
+
 
 ## Demo
 - [Live Demo](https://amitdiamant.github.io/magnify-3d)

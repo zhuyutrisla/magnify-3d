@@ -51,7 +51,7 @@ export default class Magnify3d {
     }
 
     createScene(material) {
-        const quad = new THREE.Mesh( new THREE.PlaneBufferGeometry( 2, 2 ), material );
+        const quad = new THREE.Mesh( new THREE.PlaneGeometry( 2, 2 ), material );
 
         const scene = new THREE.Scene();
         scene.add(quad);
